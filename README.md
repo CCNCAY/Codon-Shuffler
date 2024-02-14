@@ -324,7 +324,8 @@ Some further notes.
 
 _3.4.1 Adding more codon tables_
 
-Codon usage frequencies are determined by researcher, and stored in public databases. The database used for Codon Shuffler is http://www.kazusa.or.jp For example the human codon usage is copied over from: http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N At the time of release, Codon Shuffler comes with 3 built-in codon table choices but any number may be added. Here is how. First go to http://www.kazusa.or.jp/codon and search for your species of interest. Some species are listed as common name, but most of them are with the Latin name. The result will be a list like the follwing (example search: Homo sapiens):
+Codon usage frequencies are determined by researcher, and stored in public databases. The database used for Codon Shuffler is 
+http://www.kazusa.or.jp/codon For example the human codon usage is copied over from: http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N At the time of release, Codon Shuffler comes with 3 built-in codon table choices but any number may be added. Here is how. First go to http://www.kazusa.or.jp/codon and search for your species of interest. Some species are listed as common name, but most of them are with the Latin name. The result will be a list like the follwing (example search: Homo sapiens):
 
     _______________________________________________________________________________
     Answer for your query "Homo sapiens" (case: insensitive search).
