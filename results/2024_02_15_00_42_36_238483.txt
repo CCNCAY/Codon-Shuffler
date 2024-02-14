@@ -1,0 +1,23 @@
+Codons Shuffler cdnsf.py report. 
+File name: 2024_02_15_00_42_36_238483.txt.
+
+Report sequence(s) for 3 semi-randomly generated DNA sequences.
+
+
+Cut-off: 9.0. Species of codon table: human.
+
+============== Input peptide: ==============
+
+>GFP#P42212
+MAATGGGAHIK
+
+============== Output DNA(s): ==============
+
+>Seq1:
+ATGGCGGCGACGGGTGGCGGAGCACATATCAAA
+
+>Seq2:
+ATGGCCGCGACTGGGGGCGGTGCGCATATAAAG
+
+>Seq3:
+ATGGCCGCGACGGGCGGAGGAGCACATATAAAA
