@@ -20,7 +20,8 @@ ToC.:
 
 
 
-** 1. INTRO**
+**1. INTRO**
+
 
 The purpose of Codon Shuffler is to create DNA sequences that code for repetitive aminoacid sequences but are as little repetitive on the DNA level as possible. Why is it important. Gene synthesis is a modern way to create any coding DNA of artificial genes. However, repetitions in the DNA may impair the success rate of DNA synthesis. Many genes of interest nowadays consist of multiplication (dimer, trimer or higher degree of multimer) of a protein or domain. To cretae coding DNA for trimer via syntesis, one needs a DNA design that has as little similraties as possible.
 
@@ -43,95 +44,65 @@ The prgram then takes G (Glycine). It is coded by GGA, GGT, GGG and GGC. The pro
     Output DNA 3: ATGGGA
 
 
-The next aminoacid is Y (Tyrosine) coded by two codons TAT, TAC. Codon Shuffler picks one for the first DNA and the other for the second. Unfortunately the options are out so
-either one of them is (randomly) repeated on the third DNA. The W (Tryptophane) is even worse, having one option, TGG.
+The next aminoacid is Y (Tyrosine) coded by two codons TAT, TAC. Codon Shuffler picks one for the first DNA and the other for the second. Unfortunately the options are out so either one of them is (randomly) repeated on the third DNA. The W (Tryptophane) is even worse, having one option, TGG.
 
-Output DNA 1: ATGGGGTACTGG
-Output DNA 2: ATGGGCTATTGG
-Output DNA 3: ATGGGATATTGG
+    Output DNA 1: ATGGGGTACTGG
+    Output DNA 2: ATGGGCTATTGG
+    Output DNA 3: ATGGGATATTGG
 
-The program continoues this way, producing 3 different DNA outputs for the same peptide input. Note that the next Glycin (or any next aminoacid) is independent from the previous,
-so the codons will be added in different order. As the program uses random to reverse translate the aminoacid sequence, the outcome is different in every run.
-
-The user may get less versions of DNA (see chapter 3.1), discard rare codons (see chapter 3.2), chose the way of input (see chapter 3.3) or use codon frequency tables from different
-species (see chapter 3.4).
+The program continoues this way, producing 3 different DNA outputs for the same peptide input. Note that the next Glycin (or any next aminoacid) is independent from the previous, so the codons will be added in different order. As the program uses random to reverse translate the aminoacid sequence, the outcome is different in every run. 
+The user may get less versions of DNA (see chapter 3.1), discard rare codons (see chapter 3.2), chose the way of input (see chapter 3.3) or use codon frequency tables from different species (see chapter 3.4).
 
 
 
-                        2. REQUIREMENTS
+**2. REQUIREMENTS**
 
-The program was written in Python 3. No extra libraries are needed as dependency, but the Python 3 itself needs to be installed. Some operating systems come with python.
-If you try to run the program but an error comes back such as "unknown command" or similar, then the Python 3 should be installed first.
-Codon Shuffler can be in any folder, but requires to have a subfolder called /codontables in its own folder. This subfolder must contain the codontables under the names of
-human.txt, mouse.txt and ecoli.txt in the exact format it comes with. It may also contain other txt files.
-The human, mouse and ecoli files come with the program. If the files are missing or tampered with, the program will not run and/or run into an error. More on these files
-in the HOW TO USE chapter.
-The program also requires a /results folder where the results are saved and an /inputs folder too. These folders and files must be named exactly as described here.
+The program was written in Python 3. No extra libraries are needed as dependency, but the Python 3 itself needs to be installed. Some operating systems come with python. If you try to run the program but an error comes back such as "unknown command" or similar, then the Python 3 should be installed first. Codon Shuffler can be in any folder, but requires to have a subfolder called /codontables in its own folder. This subfolder must contain the codontables under the names of human.txt, mouse.txt and ecoli.txt in the exact format it comes with. It may also contain other txt files.
+The human, mouse and ecoli files come with the program. If the files are missing or tampered with, the program will not run and/or run into an error. More on these files in the HOW TO USE chapter. The program also requires a /results folder where the results are saved and an /inputs folder too. These folders and files must be named exactly as described here.
 
 
 
-                        3. HOW TO USE
+**3. HOW TO USE**
 
 
-Codon Shuffler can be used in command-line with customization options or instead, by double clicking, without customoization (a.k.a default).
-To use in command line, use the terminal window (called command prompt in windows) to navigate into the folder containing cdnsf.py.
-For example C:/User/Documents/Codon Shuffler
+Codon Shuffler can be used in command-line with customization options or instead, by double clicking, without customoization (a.k.a default). To use in command line, use the terminal window (called command prompt in windows) to navigate into the folder containing cdnsf.py. For example 
+    
+    C:/User/Documents/Codon Shuffler 
 
-Then type in the command line:   python cdnsf.py
+Then type in the command line:
 
-Depending on your system it is possible that instead of the "python" part, "python3" should be typed. Make sure that the program file
-is cdnsf.py, or if it was renamed, type the new name after "python". The new name must end with the extension ".py", and cannot
-have white space in it (i.e. "codon shuffler.py").
+    python cdnsf.py
 
-After the file name, command line arguments can be added. Command line arguments can be combined and any number can be added.
-Codon Shuffler uses the following arguments:
+Depending on your system it is possible that instead of the "python" part, "python3" should be typed. Make sure that the program file is cdnsf.py, or if it was renamed, type the new name after "python". The new name must end with the extension ".py", and cannot have white space in it (i.e. "codon shuffler.py"). After the file name, command line arguments can be added. Command line arguments can be combined and any number can be added. Codon Shuffler uses the following arguments:
 
--n          Number of requested DNA. Use with a whole number of 1 or 2 or 3, such as -n 2
--co         Cut-off. Use with a number, such as -co 10
--i          Input file. Use with a filename such as -i example.txt or with an dash character for command line input: -i -
--sp         Species. Use with a built-in species such as -sp mouse or a filename -sp arabidopsis.txt
+    -n          Number of requested DNA. Use with a whole number of 1 or 2 or 3, such as -n 2
+    -co         Cut-off. Use with a number, such as -co 10
+    -i          Input file. Use with a filename such as -i example.txt or with an dash character for command line input: -i -
+    -sp         Species. Use with a built-in species such as -sp mouse or a filename -sp arabidopsis.txt
 
-Using the -h argument offers help. The arguments, except -h can be combined and used in any order. For example the
-following setup is valid:
+Using the -h argument offers help. The arguments, except -h can be combined and used in any order. For example the following setup is valid:
 
-python cdnsf.py -n 2 -co 15 -sp ecoli -i myfile.txt
+    python cdnsf.py -n 2 -co 15 -sp ecoli -i myfile.txt
 
-In this case the program will output 2 DNA sequences (-n 2), using a cut-off of 15% (-co 15), and using the E. coli
-built-in codon frequency table (-sp ecoli), and the peptide sequence comes from a file (-file myfile.txt).
-The chapters below explain all settings one by one in detail. The default values are:
+In this case the program will output 2 DNA sequences (-n 2), using a cut-off of 15% (-co 15), and using the E. coli built-in codon frequency table (-sp ecoli), and the peptide sequence comes from a file (-file myfile.txt). The chapters below explain all settings one by one in detail. The default values are:
 
-python cdnsf.py -n 3 -co 9 -sp human -i sample.txt
+    python cdnsf.py -n 3 -co 9 -sp human -i sample.txt
 
 Arguments that are the same as default are not necessary to be typed in.
-
-Codon shuffler generates a report file after every run (unless something causes a crashing). Some problems are expected
-and dealt with, such as invalid characters in the input. In such case the program still generates a report.
-Report files appear in the /reports folder. If this folder does not exist (i.e. deleted accidentally), no report can
-be generated.
+Codon shuffler generates a report file after every run (unless something causes a crashing). Some problems are expected and dealt with, such as invalid characters in the input. In such case the program still generates a report. Report files appear in the /reports folder. If this folder does not exist (i.e. deleted accidentally), no report can be generated.
 
 
-                3.1 Number of runs
+*3.1 Number of runs*
 
 
-Usage by: -n, # where # is either 1, 2 or 3.
-Example: -n 3
-Default: 3, if any number but 1 to 3 is given (for example 52 or -2), the default 3 is used instead.
+    Usage by: -n, # where # is either 1, 2 or 3.
+    Example: -n 3
+    Default: 3, if any number but 1 to 3 is given (for example 52 or -2), the default 3 is used instead.
 
 
-The main goal of Codon Shuffler is to generate as different copies of DNA as possible. The number of copies requested
-can be either 1, 2 or 3. If only 2 is needed, it is still recommended to use the setting 3 and use the two best options.
-What the program in fact does: it looks at each aminoacid in the input and randomly takes one codon for the first output
-and the other one for the second. Since many aminoacids have only two codons (such as Histidine: CAC or CAT), the third
-output will be the same as either one of the codons. If a third codon is available (shuch as Glycine that is encoded by
-GGA, GGT, GGC or GGG), the third output is also guaranteed to be different.
-
-That however comes with a sacrifice. Usual reverse tranlation programs take into considerartion the codon usage bias that
-is specific for each species. For example in mouse 50% of the Isoleucines are coded by ATC, 34% is ATT and the rest (16%)
-is ATA. It is usually recommended, for high performance protein expression, to not overrepresent rare codons i.e. in this
-example do not use the ATA codon for more than 16 of all isoleucines in the target protein.
-Codon Shuffler however does overrepresent rare codons, because it takes, in this example, all Isoleucine codons at 33%.
-To counter that, it is possible to exclude the really rare codons (those with 5-6%), and the program comes with such setting
-options called cut-off see more anbout it in chapter 3.2.
+The main goal of Codon Shuffler is to generate as different copies of DNA as possible. The number of copies requested can be either 1, 2 or 3. If only 2 is needed, it is still recommended to use the setting 3 and use the two best options. What the program in fact does: it looks at each aminoacid in the input and randomly takes one codon for the first output and the other one for the second. Since many aminoacids have only two codons (such as Histidine: CAC or CAT), the third output will be the same as either one of the codons. If a third codon is available (shuch as Glycine that is encoded by
+GGA, GGT, GGC or GGG), the third output is also guaranteed to be different. 
+That however comes with a sacrifice. Usual reverse tranlation programs take into considerartion the codon usage bias that is specific for each species. For example in mouse 50% of the Isoleucines are coded by ATC, 34% is ATT and the rest (16%) is ATA. It is usually recommended, for high performance protein expression, to not overrepresent rare codons i.e. in this example do not use the ATA codon for more than 16 of all isoleucines in the target protein. Codon Shuffler however does overrepresent rare codons, because it takes, in this example, all Isoleucine codons at 33%. To counter that, it is possible to exclude the really rare codons (those with 5-6%), and the program comes with such setting options called cut-off see more anbout it in chapter 3.2.
 
 In fact, to maximise codon variability, Codon shuffler handles every codon at the same odds. For example if an aminoacid has
 4 codons (such as Glycine), then codon shuffler will take one at 25% for the first output DNA, regardless of the real codon
@@ -148,144 +119,104 @@ I.e. with the above examples, ~50% of the Isoleucines are expected to be ~34% is
 within deviation of the random generator itself.
 
 
+*3.2 Cut-off.*
 
+    Usage by: -co # where # is a number.
+    Example for setting 5, type in the command line python cdnsf.py -co 5
+    Default: 10
+    Turn off: use -n 0
 
-                3.2 Cut-off.
-
-
-Usage by: -co # where # is a number.
-Example for setting 5, type in the command line python cdnsf.py -co 5
-Default: 10
-Turn off: use -n 0
-
-Codon Shuffler applies a cut-off to disallow rare codons, such as the Ser codon TCG that is used in many mammals only at
-around 5% of all Ser codons. In proetin production it is often recommended to avoid such codons (i.e use them even at
-lower occurance than they are used by nature or not at all) as they can be the bottleneck in terms of protein yield.
-To cut-off a given rare codon, a setting that is HIGHER (equal NOT included) must be used. For example to cut off codons
-that are as rare as 5, 6, or 7%, the setting 8 shall be used. Codons with 8% or higher occurance will not be cut off.
-The program will by default apply a setting of 9 that cuts out the human TCG (ser), CTA & TTA (Leu) and CGT (Arg).
-To turn it off use 0 as a setting. Negative numbers will be automatically used as 0, non-numbers cause the program to
-run in an error and stop. Numbers larger than 21 will be automatically reset to 21. This is because in human the next
-setting would cut off all Arginine codons. Ir is highly not recommended though to use a setting where aminoacids are
-reduced to two codons, such as setting 13 in human or setting 14 in mouse where they have 2 Leucine codons left
+Codon Shuffler applies a cut-off to exclude rare codons, such as the Ser codon TCG that is used in many mammals only at around 5% of all Ser codons. In proetin production it is often recommended to avoid such codons (i.e use them even at lower occurance than they are used by nature or not at all) as they can be the bottleneck in terms of protein yield. To cut-off a given rare codon, a setting that is HIGHER (equal NOT included) must be used. For example to cut off codons that are as rare as 5, 6, or 7%, the setting 8 shall be used. Codons with 8% or higher occurance will not be cut off.
+The program will by default apply a setting of 9 that cuts out the human TCG (ser), CTA & TTA (Leu) and CGT (Arg). To turn it off use 0 as a setting. Negative numbers will be automatically used as 0, non-numbers cause the program to run in an error and stop. Numbers larger than 21 will be automatically reset to 21. This is because in human the next setting would cut off all Arginine codons. Ir is highly not recommended though to use a setting where aminoacids are reduced to two codons, such as setting 13 in human or setting 14 in mouse where they have 2 Leucine codons left
 (respectively).
 
-The prgram handles fraction numbers so theoretically a 5.5 can be used to put a cut-off between 5% and 5.8%, but it
-is only there to give the program more robustness. It does not bring too much biological sense.
+The prgram handles fraction numbers so theoretically a 5.5 can be used to put a cut-off between 5% and 5.8%, but it is only there to give the program more robustness. It does not bring too much biological sense.
 
 
-        3.2.1 About cut-off settings (human or mouse).
+*3.2.1 About cut-off settings*
 
 
-The table below lists which setting will cause which codon, in mouse and human or E. coli, not to be used anymore as
-it does not make the cut-off. The format of the table is as follows. The leftmost number is the setting. For example
-at setting 8, the human column lists "7.9 Leu TTA (4 left)". In this example 7.9 means the actual percentage of that
-codon. Then which aminoacid and which codon ix excluded. And finally how many codons of the given aminoacid is
-still there at this setting. Please note that at every setting the previous numbers are cut off too.
+The table below lists which setting will cause which codon, in mouse, human or E. coli, are excluded as they do not make the cut-off. The format of the table is as follows. The leftmost number is the setting. For example at setting 8, the human column lists
+    
+    7.9 Leu TTA (4 left)
+    
+In this example **7.9** means the actual usage percentage of that codon, followed by the 3-letter code of the amoniacid (**Leu**) and which exact codon (**TTA**) excluded by this setting. And finally a detail on how many codons of the given aminoacid are still there at this setting. Please note that at every setting the previous numbers are cut off too.
 
-There is a trade-off between using "good" or non-rare codons, and resulting as highly shuffled results as possible.
-To my experience sticking with only the good codons can result in DNA that is too repetitive for synthesis. Therefore it
-is not recommended to reduce the number of any given codon options below 3. (Note that many aminoacids alread come with
-only 1 or 2 options.) Therefore in case of human codon table, it is not recommended to go above cut-off of 13.
+There is a trade-off between using "good" or frequent codons, and resulting as highly shuffled results as possible. To my experience sticking with only the good codons can result in DNA that is too repetitive for synthesis. It is not reecommended to use cut-off settings where an aminoacid that originally had more than two codon options, is reduced to two or less, as this reduces the DNA versatility. (Note that many aminoacids alread come with only 1 or 2 options that can reduce versatility of some regions alredy.) If the human codon table is used, the first occurance of such case is cut-off of 13, where Leu is reduced to two codons.
 
-I also recommend to keep in mind the excluded codons, and hand-edit them back in a targeted, low occurance way
-if the resulting DNA is too difficult for syntesis. Or, re-run the program at a lower setting of cut-off.
-Please note that aminoacid clusters high in Trp and Met will always be difficult to produce in a dimer or trimer,
-as tehese aminoacids have only 1 codon each.
+I also recommend to keep in mind the excluded codons, and hand-edit them back in a targeted, low occurance way if the resulting DNA is too difficult for syntesis. Or, re-run the program at a lower setting of cut-off. Please note that aminoacid clusters high in Trp and Met will always be difficult to produce in a dimer or trimer, as tehese aminoacids have only 1 codon each.
 
 
-Setting           human                      mouse                            E. coli
---------------------------------------------------------------------------------------------------
- 4                                                                       4.0 Leu CTA (5 left)    |
-                                                                         3.0 Arg AGG (5 left)    |
- 6        5.0 Ser TCG (5 left)          5.0 Ser (5 left)                 5.0 Arg AGA (4 left)    |
- 7        6.9 Leu CTA (5 left)                                                                    \ DEFAULT
- 8        7.9 Leu TTA (4 left)          7.0 Leu TTA (5 left)             7.0 Arg CGA (7.0)        / SETTING
- 9        8.1 Arg CGT (5 left)          8.0 Leu CTA (4  left)                                    |
-                                        8.0 Arg CGT (5 left)                                     |
---------------------------------------------------------------------------------------------------
-10                                      9.1 Ala GCG (3 left)             9.1 Ile ATA (2 left)
-11      10.9 Ala GCG (3 left)          10.0 Pro CCG (3 left)            10.0 Leu CTC (4 left)
-                                       10.1 Thr ACG (3 left)
-12      11.0 Pro CCG (3 left)                                           11.0 Leu CTT (3 left)
-        11.1 Arg CGA (4 left)                                           11.1 Arg CGG (3 left)
-        11.0 Thr ACG (3 left)
-13      12.8 Leu TTG, CTT (2 left)     12.0 Arg CGA (4 left)            12.0 Gly GGA (3 left)
-        12.0 Val GTA (3 left)
-14                                     13.0 Leu TTG, CTT (2 left)       13.0 Leu TTA, TTG (1 left)
-                                                                        13.0 Pro CCC (3 left)
-                                                                        13.8 Ser TCT, TCA (4 left)
-15                                     14.0 Ser TCA (3 left)            14.8 Ser TCC, TCG (2 left)
-16      15.0 Ser AGT, TCA (3 left)     16.0 Ser AGT (2 left)            15.8 Ser AGT (1 left)
-                                                                        15.0 Thr ACA (3 left)
-17      16.0 Gly GGT (3 left)                                           16.0 Ala GCT (3 left)
-                                                                        16.0 Gly GGG (2 left)
-                                                                        16.0 Val GTA (3 left)
-18      17.0 Ile ATA (2 left)          17.0 Ile ATA (2 left)            17.0 Thr ACT (2 left)
-                                       17.0 Arg CGC (3 left)
-                                       17.0 GTT (2 left)
-19      18.2 Arg CGC (3 left)          18.0 Gly GGT (3 left)
-        18.0 Val (2 left)
-20      19.0 Ser TCT (2 left)          19.0 Arg CGG (2 left)            19.0 Pro CCG (1 left)
-21      20.2 Arg CGG (2 left)          20.0 Leu CTC (1 left)
-                                       20.0 Ser TCT (2 left)
------------------------------------------------------------------------------------------------> MAX
-22      21.2 Arg AGA, AGG (none left)
+    Setting           human                      mouse                            E. coli
+    --------------------------------------------------------------------------------------------------
+     4                                                                       4.0 Leu CTA (5 left)    |
+                                                                             3.0 Arg AGG (5 left)    |
+     6        5.0 Ser TCG (5 left)          5.0 Ser (5 left)                 5.0 Arg AGA (4 left)    |
+     7        6.9 Leu CTA (5 left)                                                                    \ DEFAULT
+     8        7.9 Leu TTA (4 left)          7.0 Leu TTA (5 left)             7.0 Arg CGA (7.0)        / SETTING
+     9        8.1 Arg CGT (5 left)          8.0 Leu CTA (4  left)                                    |
+                                            8.0 Arg CGT (5 left)                                     |
+    --------------------------------------------------------------------------------------------------
+    10                                      9.1 Ala GCG (3 left)             9.1 Ile ATA (2 left)
+    11      10.9 Ala GCG (3 left)          10.0 Pro CCG (3 left)            10.0 Leu CTC (4 left)
+                                           10.1 Thr ACG (3 left)
+    12      11.0 Pro CCG (3 left)                                           11.0 Leu CTT (3 left)
+            11.1 Arg CGA (4 left)                                           11.1 Arg CGG (3 left)
+            11.0 Thr ACG (3 left)
+    13      12.8 Leu TTG, CTT (2 left)     12.0 Arg CGA (4 left)            12.0 Gly GGA (3 left)
+            12.0 Val GTA (3 left)
+    14                                     13.0 Leu TTG, CTT (2 left)       13.0 Leu TTA, TTG (1 left)
+                                                                            13.0 Pro CCC (3 left)
+                                                                            13.8 Ser TCT, TCA (4 left)
+    15                                     14.0 Ser TCA (3 left)            14.8 Ser TCC, TCG (2 left)
+    16      15.0 Ser AGT, TCA (3 left)     16.0 Ser AGT (2 left)            15.8 Ser AGT (1 left)
+                                                                            15.0 Thr ACA (3 left)
+    17      16.0 Gly GGT (3 left)                                           16.0 Ala GCT (3 left)
+                                                                            16.0 Gly GGG (2 left)
+                                                                            16.0 Val GTA (3 left)
+    18      17.0 Ile ATA (2 left)          17.0 Ile ATA (2 left)            17.0 Thr ACT (2 left)
+                                           17.0 Arg CGC (3 left)
+                                           17.0 GTT (2 left)
+    19      18.2 Arg CGC (3 left)          18.0 Gly GGT (3 left)
+            18.0 Val (2 left)
+    20      19.0 Ser TCT (2 left)          19.0 Arg CGG (2 left)            19.0 Pro CCG (1 left)
+    21      20.2 Arg CGG (2 left)          20.0 Leu CTC (1 left)
+                                           20.0 Ser TCT (2 left)
+    -----------------------------------------------------------------------------------------------> MAX
+    22      21.2 Arg AGA, AGG (none left)
 
 
 
 
-                3.3 Input.
+*3.3 Input.*
 
-Codon shuffler requires a peptid as input to be reverse translated. The peptide must come as plain text, using the single-letter
-aminoacid codes. The peptide sequence can either be copied in command line or can be a file.
-Allowed characters: single-letter amino acids according to IUPAC (https://iupac.qmul.ac.uk/AminoAcid/A2021.html) except U, X, or Z.
-The input is case-insensitive (lower case or upper case equally okay, such as a, A, t, T, q, Q). Use asterisk (*) for stop.
+Codon shuffler requires a peptid as input to be reverse translated. The peptide must come as plain text, using the single-letter aminoacid codes. The peptide sequence can either be copied in command line or can be a file. Allowed characters: single-letter amino acids according to IUPAC (https://iupac.qmul.ac.uk/AminoAcid/A2021.html) except U, X, or Z. The input is case-insensitive (lower case or upper case equally okay, such as a, A, t, T, q, Q). Use asterisk (*) for stop. 
 
-Do not use other letters such as ambiguos or non-aminoacids (Z, X, B, etc), missing aminoacids ( _ ), or any other stop character
-but asterisk. The program filters for wild space and line end characters, but other (even invisible) characters will stop it
-from running. If such characters are included, a report file is generated with the run details, including all input and the
-found non-peptide caharacters. Note that sequences copied from a word or other rich dext editor may contain characters that
-look like a normal space but they are not. Such characters may close the program to report invalid characters. See more on
-reports later, and check the trouble shooting in case if anything like that happens.
+Do not use other letters such as ambiguos or non-aminoacids (Z, X, B, etc), missing aminoacids ( _ ), or any other stop character but asterisk. The program filters for wild space and line end characters, but other (even invisible) characters will stop it from running. If such characters are included, a report file is generated with the run details, including all input and the found non-peptide caharacters. Note that sequences copied from a word or other rich dext editor may contain characters that look like a normal space but they are not. Such characters may close the program to report invalid characters. See more on reports later, and check the trouble shooting in case if anything like that happens.
 
 
-        3.3.1 File input
+_3.3.1 File input_
 
 
-Usage by: -i xxxx.txt + where xxxx.txt is an existing raw text file.
-Example: -i my_input.txt
+    Usage by: -i xxxx.txt + where xxxx.txt is an existing raw text file.
+    Example: -i my_input.txt
 
-The default input method is reading data from the /inputs/input.txt file. This being default, the program can be run with
-double clicking, with every other parameters being default: "-n 3", "-co 9" and "-sp human".
-To use the program this way, the content of input.txt must be updated before each run. (The file comes as an empty txt with the program,
-for a test please copy over the content of example.txt which contains the sequence of GFP.)
+The default input method is reading data from the /inputs/input.txt file. This being default, the program can be run with double clicking, with every other parameters being default: **"-n 3", "-co 9" and "-sp human"**. To use the program this way, the content of input.txt must be updated before each run. (The file comes as an empty txt with the program, for a test please copy over the content of example.txt which contains the sequence of GFP.) It is also possible to run Codon Shuffler using different input files, but for that the program must be started from command line. If doing so, the -i argument and the file name must be given. The input file is first searched in the /inputs subfolder, and if any matching file, it is used. If not, the program tries to look for it in its own folder. If it is still unsuccessful, a report is generated and the program exits.
 
-It is also possible to run Codon Shuffler using different input files, but for that the program must be started from command line.
-If doing so, the -i argument and the file name must be given. The input file is first searched in the /inputs subfolder, and if any
-matching file, it is used. If not, the program tries to look for it in its own folder. If it is still unsuccessful, a report
-is generated and the program exits.
+**IMPORTANT.** If started from command line, a file name cannot have a space character in it, or if it has, it must be sourrounded by quotation marks. I.e. My File.txt is not valid, but "My File.txt" is valid. Quotation marks and apostrophes cannot be in the file name at all. It is not a restriction of Codon Shuffler, but a restriction of command line in general. 
 
-IMPORTANT. If started from command line, a file name cannot have a space character in it, or if it has, it must be sourrounded by quotation
-marks. I.e. My File.txt is not valid, but "My File.txt" is valid. Quotation marks and apostrophes cannot be in the file name at all.
-It is not a restriction of Codon Shuffler, but a restriction of command line in general.
-
-The input file can be fasta format or just the plain sequence. (More on fasta format: https://en.wikipedia.org/wiki/FASTA_format#Overview)
-Although empty lines are disregarded, the program does not support multiple peptide sequences in one file. If there are multiple sequences
-without separator, Codon Shuffler will concatenate them and handle as a single sequence (deleting any empty lines in between). A multiple
-fasta file with ">" symbols will cause an error but a report will be generated telling that ">" symbols were found. The drawings below
-illustrate the input, the lines are representing the text editor window.
+The input file can be fasta format or just the plain sequence. (More on fasta format: https://en.wikipedia.org/wiki/FASTA_format#Overview) Although empty lines are disregarded, the program does not support multiple peptide sequences in one file. If there are multiple sequences without separator, Codon Shuffler will concatenate them and handle as a single sequence (deleting any empty lines in between). A multiple fasta file with ">" symbols will cause an error but a report will be generated telling that ">" symbols were found. The drawings below illustrate the input, the lines are representing the text editor window.
 
 An illustration of a fasta file how it shall look (the lines represent the text editor window.) Lower or upper-case letters can be mixed.
 
-_________________________________________________
-|>GFP #1.1 as from Dr Doe                               <==== This is the fasta header or title line. Without the ">" symbol it causes an error.
-|SKGEELFTGVVPILVELdgdVNGHKFSVSGEGEGDATYGKL
-|TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
-|FKSAMPEGYVqert*
-|
-|
-|
+    _________________________________________________
+    |>GFP #1.1 as from Dr Doe                               <==== This is the fasta header or title .
+    |SKGEELFTGVVPILVELdgdVNGHKFSVSGEGEGDATYGKL                    line. Without the ">" symbol it 
+    |TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF                    causes an error
+    |FKSAMPEGYVqert*
+    |
+    |
+    |
 
 
 An example for WRONG input, it is missing the > symbol. Will cause an error. In case if there were no other symbols or numbers (#1.1 in this example),
