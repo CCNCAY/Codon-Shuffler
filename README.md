@@ -404,89 +404,78 @@ When looking up the correct codon usage table at kazusa.or.jp, this is the outpu
     
 Example:
 
-    _____________________________________________________________________________________________________________________________
-                                                                                                                      \
-    Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)                                                                >  DO NOT COPY
-    fields: [triplet] [amino acid] [fraction] [frequency: per thousand] ([number])                                    /
+    ___________________________________________________________________________________________________________________
+                                                                                                             \
+    Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)                                                       >  DO NOT COPY
+    fields: [triplet] [amino acid] [fraction] [frequency: per thousand] ([number])                           /
     
-                                                                                                                     __
-    UUU F 0.46 17.6 (714298)  UCU S 0.19 15.2 (618711)  UAU Y 0.44 12.2 (495699)  UGU C 0.46 10.6 (430311)             \
-    UUC F 0.54 20.3 (824692)  UCC S 0.22 17.7 (718892)  UAC Y 0.56 15.3 (622407)  UGC C 0.54 12.6 (513028)              |
-    UUA L 0.08  7.7 (311881)  UCA S 0.15 12.2 (496448)  UAA * 0.30  1.0 ( 40285)  UGA * 0.47  1.6 ( 63237)              |
-    UUG L 0.13 12.9 (525688)  UCG S 0.05  4.4 (179419)  UAG * 0.24  0.8 ( 32109)  UGG W 1.00 13.2 (535595)              |
-                                                                                                                        |
-    CUU L 0.13 13.2 (536515)  CCU P 0.29 17.5 (713233)  CAU H 0.42 10.9 (441711)  CGU R 0.08  4.5 (184609)              |
-    CUC L 0.20 19.6 (796638)  CCC P 0.32 19.8 (804620)  CAC H 0.58 15.1 (613713)  CGC R 0.18 10.4 (423516)              |
-    CUA L 0.07  7.2 (290751)  CCA P 0.28 16.9 (688038)  CAA Q 0.27 12.3 (501911)  CGA R 0.11  6.2 (250760)               \
-    CUG L 0.40 39.6 (1611801)  CCG P 0.11  6.9 (281570)  CAG Q 0.73 34.2 (1391973)  CGG R 0.20 11.4 (464485)              \  Copy only
-                                                                                                                          /  this part
-    AUU I 0.36 16.0 (650473)  ACU T 0.25 13.1 (533609)  AAU N 0.47 17.0 (689701)  AGU S 0.15 12.1 (493429)               /
-    AUC I 0.47 20.8 (846466)  ACC T 0.36 18.9 (768147)  AAC N 0.53 19.1 (776603)  AGC S 0.24 19.5 (791383)              |
-    AUA I 0.17  7.5 (304565)  ACA T 0.28 15.1 (614523)  AAA K 0.43 24.4 (993621)  AGA R 0.21 12.2 (494682)              |
-    AUG M 1.00 22.0 (896005)  ACG T 0.11  6.1 (246105)  AAG K 0.57 31.9 (1295568)  AGG R 0.21 12.0 (486463)             |
-                                                                                                                        |
-    GUU V 0.18 11.0 (448607)  GCU A 0.27 18.4 (750096)  GAU D 0.46 21.8 (885429)  GGU G 0.16 10.8 (437126)              |
-    GUC V 0.24 14.5 (588138)  GCC A 0.40 27.7 (1127679)  GAC D 0.54 25.1 (1020595)  GGC G 0.34 22.2 (903565)            |    
-    GUA V 0.12  7.1 (287712)  GCA A 0.23 15.8 (643471)  GAA E 0.42 29.0 (1177632)  GGA G 0.25 16.5 (669873)             |
-    GUG V 0.46 28.1 (1143534)  GCG A 0.11  7.4 (299495)  GAG E 0.58 39.6 (1609975)  GGG G 0.25 16.5 (669768)          __/
+                                                                                                             __
+    UUU F 0.46 17.6 (714298)  UCU S 0.19 15.2 (618711)  UAU Y 0.44 12.2 (495699)  UGU C 0.46 10.6 (430311)     \
+    UUC F 0.54 20.3 (824692)  UCC S 0.22 17.7 (718892)  UAC Y 0.56 15.3 (622407)  UGC C 0.54 12.6 (513028)      |
+    UUA L 0.08  7.7 (311881)  UCA S 0.15 12.2 (496448)  UAA * 0.30  1.0 ( 40285)  UGA * 0.47  1.6 ( 63237)      |
+    UUG L 0.13 12.9 (525688)  UCG S 0.05  4.4 (179419)  UAG * 0.24  0.8 ( 32109)  UGG W 1.00 13.2 (535595)      |
+                                                                                                                |
+    CUU L 0.13 13.2 (536515)  CCU P 0.29 17.5 (713233)  CAU H 0.42 10.9 (441711)  CGU R 0.08  4.5 (184609)      |
+    CUC L 0.20 19.6 (796638)  CCC P 0.32 19.8 (804620)  CAC H 0.58 15.1 (613713)  CGC R 0.18 10.4 (423516)      |
+    CUA L 0.07  7.2 (290751)  CCA P 0.28 16.9 (688038)  CAA Q 0.27 12.3 (501911)  CGA R 0.11  6.2 (250760)       \
+    CUG L 0.40 39.6 (1611801)  CCG P 0.11  6.9 (281570)  CAG Q 0.73 34.2 (1391973)  CGG R 0.20 11.4 (464485)      \  Copy only
+                                                                                                                  /  this part
+    AUU I 0.36 16.0 (650473)  ACU T 0.25 13.1 (533609)  AAU N 0.47 17.0 (689701)  AGU S 0.15 12.1 (493429)       /
+    AUC I 0.47 20.8 (846466)  ACC T 0.36 18.9 (768147)  AAC N 0.53 19.1 (776603)  AGC S 0.24 19.5 (791383)      |
+    AUA I 0.17  7.5 (304565)  ACA T 0.28 15.1 (614523)  AAA K 0.43 24.4 (993621)  AGA R 0.21 12.2 (494682)      |
+    AUG M 1.00 22.0 (896005)  ACG T 0.11  6.1 (246105)  AAG K 0.57 31.9 (1295568)  AGG R 0.21 12.0 (486463)     |
+                                                                                                                |
+    GUU V 0.18 11.0 (448607)  GCU A 0.27 18.4 (750096)  GAU D 0.46 21.8 (885429)  GGU G 0.16 10.8 (437126)      |
+    GUC V 0.24 14.5 (588138)  GCC A 0.40 27.7 (1127679)  GAC D 0.54 25.1 (1020595)  GGC G 0.34 22.2 (903565)    |    
+    GUA V 0.12  7.1 (287712)  GCA A 0.23 15.8 (643471)  GAA E 0.42 29.0 (1177632)  GGA G 0.25 16.5 (669873)     |
+    GUG V 0.46 28.1 (1143534)  GCG A 0.11  7.4 (299495)  GAG E 0.58 39.6 (1609975)  GGG G 0.25 16.5 (669768)  __/
     
-                                                                                                                       \
-    Coding GC 52.27% 1st letter GC 55.72% 2nd letter GC 42.54% 3rd letter GC 58.55%                                     >  DO NOT COPY
-    Genetic code 1: Standard                                                                                           /
-    _____________________________________________________________________________________________________________________________
+                                                                                                              \
+    Coding GC 52.27% 1st letter GC 55.72% 2nd letter GC 42.54% 3rd letter GC 58.55%                            >  DO NOT COPY
+    Genetic code 1: Standard                                                                                  /
+    _____________________________________________________________________________________________________________________
 
 
-The codon usage data then must be saved as txt file into the /codontables subfolder. In the file name it is  recommended to use
-only alphanumeric characters (including underscore _). Command lines usually do not support names with multiple words (i.e. space in it)
-or characters such as # or <. Since you run your newly added species from command line, it is probably the best to have a simple name
-like ara.txt for Arabidopsis. Once the new species is saved, you have access to the codon table by running Codon Shuffler from
-command line by adding the argument such as -sp ara.txt or whatever the file name is.
+The codon usage data then must be saved as txt file into the /codontables subfolder. In the file name it is  recommended to use only alphanumeric characters (including underscore _). Command lines usually do not support names with multiple words (i.e. space in it) or characters such as # or <. Since you run your newly added species from command line, it is probably the best to have a simple name like ara.txt for Arabidopsis. Once the new species is saved, you have access to the codon table by running Codon Shuffler from command line by adding the argument such as -sp ara.txt or whatever the file name is.
 
 
 
 
-                        4. REPORT
+**4. REPORT**
 
 
-Codon Shuffler generates a report after every run and saves it the results folder. If the folder is missing (deleted accidentally),
-the report is not generated and lost. In this case just create a report folder and re-run the program.
-
-The name of the report is generated automatically, using the date (YYYY_MM_DD), followed by the time HH_MM_SS_ssssss, to the milliesconds
-punctuality. This ensures unique name at all times, so the previous reports are safe from being overwritten.
-The filename therefore looks like: 2024_02_12_10_55_50_870895.txt
-
-The general layout of the report is as follows. (The lines arount the text represent the edge of the text window.)
+Codon Shuffler generates a report after every run and saves it the results folder. If the folder is missing (deleted accidentally), the report is not generated and lost. In this case just create a report folder and re-run the program. The name of the report is generated automatically, using the date (YYYY_MM_DD), followed by the time HH_MM_SS_ssssss, to the milliesconds punctuality. This ensures unique name at all times, so the previous reports are safe from being overwritten. The filename therefore looks like: 2024_02_12_10_55_50_870895.txt The general layout of the report is as follows. (The lines arount the text represent the edge of the text window.)
 
 
-______________________________________________________________________
-|Codons Shuffler cdnsf.py report.
-|File name: 2024_02_12_10_55_50_870895.txt.
-|
-|Report sequence(s) for 3 semi-randomly generated DNA sequences.
-|                                                                       <====== Base data with the run parameters (such as cut-off used etc.)
-|
-|Cut-off: 0.0. Species of codon table: ecoli.
-|
-|============== Input peptide: ==============
-|
-|>Test123                              <====== The name of the sequence if a fasta was given
-|GGAHALALALTTTMAA                      <====== The peptide sequence
-|
-|
-|
-|============== Output DNA(s): ==============
-|
-|>Seq1:
-|GGGGGCGCACATGCACTTGCGCTTGCTCTAACTACCACAATGGCA
-|
-|>Seq2:
-|GGCGGGGCGCACGCCTTGGCGTTGGCATTAACAACTACCATGGCT               <====== 1, 2, or 3 DNA output sequences.
-|
-|>Seq3:
-|GGAGGGGCCCATGCTCTCGCACTAGCCCTTACTACAACCATGGCG
-|
-|
-|__________________________________________________________________
+    ______________________________________________________________________
+    |Codons Shuffler cdnsf.py report.
+    |File name: 2024_02_12_10_55_50_870895.txt.
+    |
+    |Report sequence(s) for 3 semi-randomly generated DNA sequences.           Base data with the 
+    |                                                                   <===== run parameters (such 
+    |                                                                          as cut-off used etc.)  
+    |Cut-off: 0.0. Species of codon table: ecoli.
+    |
+    |============== Input peptide: ==============
+    |
+    |>Test123                           <====== The name of the sequence if a fasta was given
+    |GGAHALALALTTTMAA                   <====== The peptide sequence
+    |
+    |
+    |
+    |============== Output DNA(s): ==============
+    |
+    |>Seq1:
+    |GGGGGCGCACATGCACTTGCGCTTGCTCTAACTACCACAATGGCA
+    |
+    |>Seq2:
+    |GGCGGGGCGCACGCCTTGGCGTTGGCATTAACAACTACCATGGCT           <====== 1, 2, or 3 DNA output sequences.
+    |
+    |>Seq3:
+    |GGAGGGGCCCATGCTCTCGCACTAGCCCTTACTACAACCATGGCG
+    |    
+    |
+    |__________________________________________________________________
 
 
 
@@ -500,10 +489,10 @@ If either the specified file is missing or it has no data, the report will conta
 
 
 
-============== Input peptide: ==============
-
-<<Empty input.>>
-
+    ============== Input peptide: ==============
+    
+    <<Empty input.>>
+    
 
 
 If the input contains invalid characters, the report will show this:
@@ -511,13 +500,13 @@ If the input contains invalid characters, the report will show this:
 
 
 
-============== Input peptide: ==============
-
->Test123
-GG_AHA_LALALTTxTMA.X
-
-The following non-peptide letters were found (may be invisible characters):
-This: _. This: x. This: .. This: X.
+    ============== Input peptide: ==============
+    
+    >Test123
+    GG_AHA_LALALTTxTMA.X
+    
+    The following non-peptide letters were found (may be invisible characters):
+    This: _. This: x. This: .. This: X.
 
 
 Each wrong input character comes after the word This: and followed by a full stop. Therefore in the example above it is easy to see
@@ -533,76 +522,74 @@ Note that symbols are listed only once per kind (regardless of their actual amou
 NOTE: If nothing helps, please download Codon Shuffler again, or contact me: https://www.linkedin.com/in/peterhorvath82/
 
 
-Issue                                   Try this
+    Issue                                   Try this
 
-The program crashes with weird,         1. The codon table may be corrupt: download it again.
-cryptic message containing words        2. The program code was edited: download it again.
-like ValueError, IndexError etc.        3. You managed to do something I never thought of: contact me.
+    The program crashes with weird,         1. The codon table may be corrupt: download it again.
+    cryptic message containing words        2. The program code was edited: download it again.
+    like ValueError, IndexError etc.        3. You managed to do something I never thought of: contact me.
+                                            4. If it was a Mac, well. For a reason Mac does not 
+                                               like python. Sometimes it works, same mac, same code
+                                               sometimes it does not. I keep re-running and 
+                                               eventually it runs. 
 
-The program stops with message like     1. The command line arguments must be the exact type of value they
-"error: argument, invalid int value"       designed for. I.e. -n and -co must be a number, if it is not given
-                                           a number, the program stops running.
+    The program stops with message like     1. The command line arguments must be the exact type of value they
+    "error: argument, invalid int value"       designed for. I.e. -n and -co must be a number, if it is not given
+                                               a number, the program stops running.
 
-I can't find a report.                  1. The report is saved in the subfolder /results, if this is
-                                           deleted, no report is saved. Create the folder with this exact name.
-                                        2. Try to re-order the files by name. Depending on the order,
-                                           the newest one is either top or bottom. It should be there.
-                                           The name is however based on the date-time setting of your
-                                           computer, check if it is off.
+    I can't find a report.                  1. The report is saved in the subfolder /results, if this is
+                                               deleted, no report is saved. Create the folder with this exact name.
+                                            2. Try to re-order the files by name. Depending on the order,
+                                               the newest one is either top or bottom. It should be there.
+                                               The name is however based on the date-time setting of your
+                                               computer, check if it is off.
 
-I get an "empty input" in the           1. Make sure the name of the input file is correctly given.
-report.                                    The full, exact name of the file must be used "my_file.txt".
-                                           If your file has upper case letters, type it that way.
-                                        2. The input file is first searched in the /inputs subfolder,
-                                           THEN in the actual folder where the program is.
-                                           If there is a file with the same /inputs without input,
-                                           it may stop the program looking further.
-                                           Files placed elswhere are not found at all.
+    I get an "empty input" in the           1. Make sure the name of the input file is correctly given.
+    report.                                    The full, exact name of the file must be used "my_file.txt".
+                                               If your file has upper case letters, type it that way.
+                                            2. The input file is first searched in the /inputs subfolder,
+                                               THEN in the actual folder where the program is.
+                                               If there is a file with the same /inputs without input,
+                                               it may stop the program looking further.
+                                               Files placed elswhere are not found at all.
 
-The program keeps asking me for         1. The species files must be in the codontables subfolder, named
-species. I keep saying human /             exactly as human.txt, mouse.txt, ecoli.txt. If the folder or
-mosue / ecoli.                             the file is renamed or moved, the program keeps asking for it.
-                                           Move and name back everything or download it all again.
-                                           Your own files must be given with the full name (file.txt).
+    The program keeps asking me for         1. The species files must be in the codontables subfolder, named
+    species. I keep saying human /             exactly as human.txt, mouse.txt, ecoli.txt. If the folder or
+    mosue / ecoli.                             the file is renamed or moved, the program keeps asking for it.
+                                               Move and name back everything or download it all again.
+                                               Your own files must be given with the full name (file.txt).
 
-The program does not start.             1. The program needs the python3 running environment. Some
-                                           computers come with it already, some computers may need
-                                           to install it first. https://www.python.org/downloads/
-                                        2. Maybe the program was renamed on your computer. If someone
-                                           renamed cdnsf.py to sor example codon.py, then you must
-                                           use the name as it is now (codon.py). The rest remains the
-                                           same.
+    The program does not start.             1. The program needs the python3 running environment. Some
+                                               computers come with it already, some computers may need
+                                               to install it first. https://www.python.org/downloads/
+                                            2. Maybe the program was renamed on your computer. If someone
+                                               renamed cdnsf.py to sor example codon.py, then you must
+                                               use the name as it is now (codon.py). The rest remains the
+                                               same.
 
-How do I know it does not have          1. Codon shuffler is open source program, you can even look
-a virus?                                   into the code yourself. Ask someone who can read it. :)
+    I think I type everything correctly     1. Note that in command line the space separates the values.
+    yet I get error message.                   do not use commas, or double space. Do not use file names
+                                               containing space (i.e. my file.txt). In such case the
+                                               command line will try to take the "my" part as file.
+                                            2. If in your country numbers use commas (like 1,5),
+                                               use dot instead (1.5).
+                                            3. Do not use non-english characters such as é or ł.
 
-I think I type everything correctly     1. Note that in command line the space separates the values.
-yet I get error message.                   do not use commas, or double space. Do not use file names
-                                           containing space (i.e. my file.txt). In such case the
-                                           command line will try to take the "my" part as file.
-                                        2. If in your country numbers use commas (like 1,5),
-                                           use dot instead (1.5).
-                                        3. Do not use non-english characters such as é or ł.
-
-A codon is not cut off at the           1. If you look at the codon usage table and see, for example,
--co setting where it should be.            a codon usage of 0.10 meaning 10%, it is possible that
-Or the other way round.                    Codon shuffler has a value of 11% for it. The reson is
-                                           that often the values do not add up to 100% due to rounding
-                                           errors. The program recalculates all values so it is now 100%
-                                           It may result in some values to go up or down a little. Try a
-                                           slightly different setting.
+    A codon is not cut off at the           1. If you look at the codon usage table and see, for example,
+    -co setting where it should be.            a codon usage of 0.10 meaning 10%, it is possible that
+    Or the other way round.                    Codon shuffler has a value of 11% for it. The reson is
+                                               that often the values do not add up to 100% due to rounding
+                                               errors. The program recalculates all values so it is now 100%
+                                               It may result in some values to go up or down a little. Try a
+                                               slightly different setting.
 
 
 
-5. MISC
+**5. MISC**
 
-CDNSF aka Codon Shuffler can be used free of charge under the licence of Creative Commons licence at the users own responsibility.
-It can be used in for-profit organisations but cannot be sold on its own, modified or unmodified, alone or as a part of a package
-or paid service. This and all the legalese about the license is described here https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1
-The author does not take responsibility for any damage (incl. misinterpreted or misused biological data). The user always must
-ensure that the result fits their needs and any result shall be confirmed (such as translated back to the original peptide).
+Codon Shuffler can be used free of charge under the licence of Creative Commons licence at the users own responsibility. The author does not take responsibility for any damage (incl. misinterpreted or misused biological data). The user always must ensure that the result fits their needs and any result shall be confirmed (such as translated back to the original peptide). 
 
 The author welcomes any ideas to improve, add, change and it may or may not be implemented in the future.
 
 Please find me at https://www.linkedin.com/in/peterhorvath82/
+
 Maybe there are other codes of mine at my github: https://github.com/CCNCAY/
