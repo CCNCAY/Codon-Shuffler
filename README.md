@@ -585,7 +585,9 @@ NOTE: If nothing helps, please download Codon Shuffler again, or contact me: htt
 
 
 
+
 **5. MISC**
+
 
 Codon Shuffler can be used free of charge under the licence of Creative Commons licence at the users own responsibility. The author does not take responsibility for any damage (incl. misinterpreted or misused biological data). The user always must ensure that the result fits their needs and any result shall be confirmed (such as translated back to the original peptide). 
 
