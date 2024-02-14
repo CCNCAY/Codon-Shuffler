@@ -8,7 +8,7 @@ Cut-off: 9.0. Species of codon table: human.
 
 ============== Input peptide: ==============
 
->GFP#P42212
+>example
 MAATGGGAHIK
 
 ============== Output DNA(s): ==============
