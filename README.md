@@ -75,10 +75,10 @@ Then type in the command line:
 
 Depending on your system it is possible that instead of the "python" part, "python3" should be typed. Make sure that the program file is cdnsf.py, or if it was renamed, type the new name after "python". The new name must end with the extension ".py", and cannot have white space in it (i.e. "codon shuffler.py"). After the file name, command line arguments can be added. Command line arguments can be combined and any number can be added. Codon Shuffler uses the following arguments:
 
-    -n          Number of requested DNA. Use with a whole number of 1 or 2 or 3, such as -n 2
-    -co         Cut-off. Use with a number, such as -co 10
-    -i          Input file. Use with a filename such as -i example.txt or with an dash character for command line input: -i -
-    -sp         Species. Use with a built-in species such as -sp mouse or a filename -sp arabidopsis.txt
+    -n      Number of requested DNA. Use with a whole number of 1 or 2 or 3, such as -n 2
+    -co     Cut-off. Use with a number, such as -co 10
+    -i      Input file. Use with a filename such as -i example.txt or with an dash character for command line input: -i -
+    -sp     Species. Use with a built-in species such as -sp mouse or a filename -sp arabidopsis.txt
 
 Using the -h argument offers help. The arguments, except -h can be combined and used in any order. For example the following setup is valid:
 
@@ -104,19 +104,9 @@ The main goal of Codon Shuffler is to generate as different copies of DNA as pos
 GGA, GGT, GGC or GGG), the third output is also guaranteed to be different. 
 That however comes with a sacrifice. Usual reverse tranlation programs take into considerartion the codon usage bias that is specific for each species. For example in mouse 50% of the Isoleucines are coded by ATC, 34% is ATT and the rest (16%) is ATA. It is usually recommended, for high performance protein expression, to not overrepresent rare codons i.e. in this example do not use the ATA codon for more than 16 of all isoleucines in the target protein. Codon Shuffler however does overrepresent rare codons, because it takes, in this example, all Isoleucine codons at 33%. To counter that, it is possible to exclude the really rare codons (those with 5-6%), and the program comes with such setting options called cut-off see more anbout it in chapter 3.2.
 
-In fact, to maximise codon variability, Codon shuffler handles every codon at the same odds. For example if an aminoacid has
-4 codons (such as Glycine), then codon shuffler will take one at 25% for the first output DNA, regardless of the real codon
-bias, then picks one from the remaining 3 at a probability of 33%, and finally picks from the other two at 50%. That
-ensures that all three DNA is as dissimilar as possible.
-In some cases an aminoacid comes with 6 codons that fall into two main categories. For example, Serine is encoded by: TCA,
-TCT, TCG, TCC, AGT and AGC. The two groups are the TCN and the AGY (Y being the shortcut for T or C), in such case the
-program takes the first output codon from the larger group (at equal probability among those), the second from the smaller
-group, and the third from the larger again.
+In fact, to maximise codon variability, Codon shuffler handles every codon at the same odds. For example if an aminoacid has 4 codons (such as Glycine), then codon shuffler will take one at 25% for the first output DNA, regardless of the real codon bias, then picks one from the remaining 3 at a probability of 33%, and finally picks from the other two at 50%. That ensures that all three DNA is as dissimilar as possible. In some cases an aminoacid comes with 6 codons that fall into two main categories. For example, Serine is encoded by: TCA, TCT, TCG, TCC, AGT and AGC. The two groups are the TCN and the AGY (Y being the shortcut for T or C), in such case the program takes the first output codon from the larger group (at equal probability among those), the second from the smaller group, and the third from the larger again.
 
-Codon shuffler also can be used as a simple reverse translation program for only 1 output, by using -n 1. In this case the
-program will consider the codon bias and gives a random reverse translation where the codons are taken at their own odds.
-I.e. with the above examples, ~50% of the Isoleucines are expected to be ~34% is expected to be ATT and the rest is ATA,
-within deviation of the random generator itself.
+Codon shuffler also can be used as a simple reverse translation program for only 1 output, by using -n 1. In this case the program will consider the codon bias and gives a random reverse translation where the codons are taken at their own odds. I.e. with the above examples, ~50% of the Isoleucines are expected to be ~34% is expected to be ATT and the rest is ATA, within deviation of the random generator itself.
 
 
 *3.2 Cut-off.*
@@ -219,66 +209,68 @@ An illustration of a fasta file how it shall look (the lines represent the text 
     |
 
 
-An example for WRONG input, it is missing the > symbol. Will cause an error. In case if there were no other symbols or numbers (#1.1 in this example),
-the prgram will try to reverse translate the name of the protein, in this case "GFP" as aminoacids. It may lead to an error in the resulting DNA.
-______________________________________________
-|GFP #1.1                                               <==== Without the ">" symbol, the non-peptide characters (#, 1 and .) cause an error.
-|SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKL
-|TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
-|FKSAMPEGYVQERT
-|
-|
-|          WRONG!!!
-|
+An example for WRONG input, it is missing the > symbol. Will cause an error. In case if there were no other symbols or numbers (#1.1 in this example), the prgram will try to reverse translate the name of the protein, in this case "GFP" as aminoacids. It may lead to an error in the resulting DNA.
+
+    ______________________________________________
+    |GFP #1.1                                               <==== Without the ">" symbol, the non-peptide 
+    |SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKL                    characters (#, 1 and .) cause an error.
+    |TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
+    |FKSAMPEGYVQERT
+    |
+    |
+    |          WRONG!!!
+    |
 
 
 A sequence without title line is also possible:
-____________________________________________
-|SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKL
-|TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
-|FKSAMPEGYVQERT
-|
-|
-|
+
+    ____________________________________________
+    |SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKL
+    |TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
+    |FKSAMPEGYVQERT
+    |
+    |
+    |
 
 
 Several sequences separated by whitespaces or new lines will be merged as one:
-____________________________________________
-|SKGEELFTGVVPILVELDGDV
-|
-|
-|NGHKFS VSGEGE GDATYGKL     TLKFICTTGKLPVPWPT          <====  Merged all as SKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPT
-|                                                             Note that as a consequence, any intended name that comes without the ">"
-|                                                             symbol but has only peptide letters (such as GFP, rDrP etc) will be
-|                                                             reverse translated as if peptide.
+
+    ____________________________________________
+    |SKGEELFTGVVPILVELDGDV
+    |                                                             Merged all as SKGEELFTGVVPILVELDGDVNGHKFSV
+    |                                                             SGEGEGDATYGKLTLKFICTTGKLPVPWPT Note that as
+    |NGHKFS VSGEGE GDATYGKL     TLKFICTTGKLPVPWPT          <====  a consequence, any intended name that comes
+    |                                                             without the ">" symbol but has only peptide
+    |                                                             letters (such as GFP, rDrP etc) will be
+    |                                                             reverse translated as if peptide.
 
 
 Numbers will cause an error.
 
-____________________________________________
-|     5    10    15    20    25                        <==== Numbers cause an error.
-|SKGEEL FTGVV PILVE LDGDV NGHKF
-|
-|
-|          WRONG!!!
-|
-|
+    ____________________________________________
+    |     5    10    15    20    25                        <==== Numbers cause an error.
+    |SKGEEL FTGVV PILVE LDGDV NGHKF
+    |
+    |
+    |          WRONG!!!
+    |
+    |
 
 
-Sequences with non-aminoacid letters (B, X, etc), or any symbol other than * will cause an error.
-A fasta separator is also not supported.
-________________________________________________
-|SKGEEL__GVVPILVELDGDVNGHKFSVSGEGEGDATYgklXXX
-|TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF
-|FKSAMPEGYVQERT.                                        <==== A report will be generated listing all invalid characters. a ">" is invalid
-|                                                             except for the first line, very first character.
-|>another fasta peptide
-|MTGGDASSEGPPRG
-|
-|
-|          WRONG!!!
-|
-|
+Sequences with non-aminoacid letters (B, X, etc), or any symbol other than * will cause an error. A fasta separator is also not supported.
+
+    ________________________________________________
+    |SKGEEL__GVVPILVELDGDVNGHKFSVSGEGEGDATYgklXXX
+    |TLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDF                    A report will be generated listing all
+    |FKSAMPEGYVQERT.                                        <==== invalid characters. a ">" is invalid
+    |                                                             except for the first line, very first 
+    |>another fasta peptide                                       character.
+    |MTGGDASSEGPPRG
+    |
+    |
+    |          WRONG!!!
+    |
+    |
 
 
 If a wrong input is given, the program generates a report with the cause (such as all the bad characters found) and stops running.
@@ -286,130 +278,102 @@ If a wrong input is given, the program generates a report with the cause (such a
 
 
 
-        3.3.2 Command line input
+_3.3.2 Command line input_
 
 
-Usage by: -i - (dash)
-Default: file input from sample.txt
+    Usage by: -i - (dash)
+    Default: file input from sample.txt
 
-If ran in this mode, Codon Shuffler asks for an input in the command line unless a file is specified in command line argument.
-Once the program is started this way, a message will appear on the command line:
-
+If ran in this mode, Codon Shuffler asks for an input in the command line unless a file is specified in command line argument. Once the program is started this way, a message will appear on the command line:
 
 
-Please paste your input peptide below and press enter. Add more peptides, or press enter in the empty line to stop.
-Sequence:
+
+    Please paste your input peptide below and press enter. Add more peptides, or press enter in the empty line to stop.
+    Sequence:
 
 
-Once a peptide sequence is placed and enter is pressed, the "Sequence: " message reappears until an enter is pressed without input.
-Then a message appers "End of  collecting sequences." All inputs are merged together. This allows the user to copy-paste peptide
-from different sources or in small pieces. Otherwise the same restictions apply as above.
-While doing the command line input, one must make sure that there is no newline character (aka multiple lines) in the sequence,
-as it may cause the loss of everything after the first line.
-
+Once a peptide sequence is placed and enter is pressed, the "Sequence: " message reappears until an enter is pressed without input. Then a message appers "End of  collecting sequences." All inputs are merged together. This allows the user to copy-paste peptide
+from different sources or in small pieces. Otherwise the same restictions apply as above. While doing the command line input, one must make sure that there is no newline character (aka multiple lines) in the sequence, as it may cause the loss of everything after the first line.
 Once all sequenes are entered, the program runs and saves a report in the /reports folder.
 
 
 
-                3.4 Codon tables, species
+*3.4 Codon tables, species*
 
 
+    Usage by: -sp species (Where species is either a built-in: human, mouse, ecoli, or a custom file.)
+    Example: -sp ecoli
+    Default: human
 
-Usage by: -sp species (Where species is coming from the built-in list: human, mouse, ecoli, or a custom one as my_species.txt)
-Example: -sp ecoli
-Default: human
 
+Codon usage frequencies (biases) depend on the species. It is usually recommended to use the codon choice of the organism in which a protein will be expressed (regardless of the origin species). Therefore a protein that is intended to be expressed in E. coli, should avoid the CTA codon of leucine because this codon codes 4% of all leucines in E. coli. In many cases the the corresponding tRNA is also rare (in terms of concentration compared to the other codons), thus overusing a codon like that may deplete the tRNA and stall the protein synthesis. Codon Shuffler comes with 3 built-in species but more can be added. If used by clicking, the default human table will be used. These three built-in species are represented by the files human.txt, mouse.txt and ecoli.txt. For the program to run correctly, the files must be formatted as they come. If there is a doubt that the values are tampered with, please re-download the files. If there are already custom added codon tables, they can be used by typing the FULL NAME of the file after the -sp argument, such as:  
+    
+    -sp my_new_species.txt  
 
-Codon usage frequencies (biases) depend on the species. It is usually recommended to use the codon choice of the organism in
-which a protein will be expressed (regardless of the origin species). Therefore a protein that is intended to be expressed in
-E. coli, should avoid the CTA codon of leucine because this codon codes 4% of all leucines in E. coli. In many cases the the
-corresponding tRNA is also rare (in terms of concentration compared to the other codons), thus overusing a codon like that may
-deplete the tRNA and stall the protein synthesis.
-Codon Shuffler comes with 3 built-in species but more can be added. If used by clicking, the default human table will be used.
-These three built-in species are represented by the files human.txt, mouse.txt and ecoli.txt. For the program to run correctly,
-the files must be formatted as they come. If there is a doubt that the values are tampered with, please re-download the files.
-If there are already custom added codon tables, they can be used by typing the FULL NAME of the file after the -sp argument,
-such as:  -sp my_new_species.txt  Note that with custom species the file extension (such as txt) must be added while with the
-built-ins, only the species (e.g. human).
-A codon table is essential for the program to run. If the one given by the user is not found, a re-prompt appears. It comes until
+Note that with custom species the file extension (such as txt) must be added while with the built-ins, only the species (e.g. human). A codon table is essential for the program to run. If the one given by the user is not found, a re-prompt appears. It comes until
 a valid file is given or the user just types in a letter x and presses enter. In the latter case, the program exits.
 
-Some important notes.
+Some further notes.
 
-The codon tables used by the program contain the codons in RNA letters (U instead of T). The exact same format but with DNA letters
-can also be used. The output is going to be DNA letters either way.
+-- The codon tables used by the program contain the codons in RNA letters (U instead of T). The exact same format but with DNA letters can also be used. The output is going to be DNA letters either way.
 
-The codon tables store the codon percentage values in ratio format, so instead of 14% it is 0.14, or instead of 50% it is 0.50 and so
-on. Codon shuffler converts and uses percrentages instead.
+-- The codon tables store the codon percentage values in ratio format, so instead of 14% it is 0.14, or instead of 50% it is 0.50 and so on. Codon shuffler converts and uses percrentages instead.
 
-The sum of codon usage for any given aminoacid should be 1 or 100%. Due to rounding errors, in some cases, it is not exactly 100%.
-For example the human Alanine has values of 0.27, 0.40, 0.23 and 0.11, which is 1.01 or 101%. Codon shuffler re-calculates the values
-so it is now 100%, but it means that some aminoacids have sligthly different values than in the codon table. Hence, the GCG codon
-for Alanine is 10.9 instead of 11, and that affects codon cut-off, as at setting 11 this is now cut off while 11 would not be.
+-- The sum of codon usage for any given aminoacid should be 1 or 100%. Due to rounding errors, in some cases, it is not exactly 100%. For example the human Alanine has values of 0.27, 0.40, 0.23 and 0.11, which is 1.01 or 101%. Codon shuffler re-calculates the values so it is now 100%, but it means that some aminoacids have sligthly different values than in the codon table. Hence, the GCG codon for Alanine is 10.9 instead of 11, and that affects codon cut-off, as at setting 11 this is now cut off while 11 would not be.
 
 
-        3.4.1 Adding more codon tables
+_3.4.1 Adding more codon tables_
 
-Codon usage frequencies are measured, and stored in databases. The database used for Codon Shuffler is http://www.kazusa.or.jp
-For example the human codon usage is copied over from: http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N
-At the time of release, Codon Shuffler comes with 3 built-in codon table choices but any number may be added. Here is how:
+Codon usage frequencies are determined by researcher, and stored in public databases. The database used for Codon Shuffler is http://www.kazusa.or.jp For example the human codon usage is copied over from: http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N At the time of release, Codon Shuffler comes with 3 built-in codon table choices but any number may be added. Here is how. First go to http://www.kazusa.or.jp/codon and search for your species of interest. Some species are listed as common name, but most of them are with the Latin name. The result will be a list like the follwing (example search: Homo sapiens):
 
-First go to http://www.kazusa.or.jp and search for your species of interest. Some species are listed as common name, but most of
-them are with the Latin name. The result will be a list like the follwing (example search: Homo sapiens):
-
-
-_______________________________________________________________________________
-Answer for your query "Homo sapiens" (case: insensitive search).
-
-mitochondrion Homo sapiens [gbpri]: 31745
-Homo sapiens [gbpri]: 93487
-_______________________________________________________________________________
+    _______________________________________________________________________________
+    Answer for your query "Homo sapiens" (case: insensitive search).
+    
+    mitochondrion Homo sapiens [gbpri]: 31745
+    Homo sapiens [gbpri]: 93487
+    _______________________________________________________________________________
 
 
-Note that the list may contain organelles or parasites of the target species. Click on the correct one. Some lists may be long,
-containing many versions and strains:
+Note that the list may contain organelles or parasites of the target species. Click on the correct one. Some lists may be long, containing many versions and strains:
 
-_______________________________________________________________________________
-Answer for your query "Escherichia coli" (case: sensitive search).
-Escherichia coli O157:H7 EDL933 [gbbct]: 5347
-Escherichia coli O127:H6 [gbbct]: 1
-Escherichia coli O111:H- [gbbct]: 7
-Escherichia coli O157:H- [gbbct]: 34
-Escherichia coli phage EH297 [gbphg]: 2                 <===== THIS IS A PHAGE OF E. COLI
-Escherichia coli CFT073 [gbbct]: 5379
-Escherichia coli O157:H45 [gbbct]: 4
-Escherichia coli O55:H51 [gbbct]: 1                     <===== DO NOT USE ANY WITH A LOW NUMBER
-Escherichia coli O26:H11 [gbbct]: 9
-Escherichia coli O63:H6 [gbbct]: 1
-Escherichia coli O153:H21 [gbbct]: 2
-Escherichia coli EAEC 042 [gbbct]: 4
-Escherichia coli W3110 [gbbct]: 4332
-Escherichia coli Nissle 1917 [gbbct]: 199
-Escherichia coli O63:HNM [gbbct]: 2
-Escherichia coli 536 [gbbct]: 4629
-Escherichia coli UTI89 [gbbct]: 5211
-[...]
-_______________________________________________________________________________
+    _______________________________________________________________________________
+    Answer for your query "Escherichia coli" (case: sensitive search).
+    Escherichia coli O157:H7 EDL933 [gbbct]: 5347
+    Escherichia coli O127:H6 [gbbct]: 1
+    Escherichia coli O111:H- [gbbct]: 7
+    Escherichia coli O157:H- [gbbct]: 34
+    Escherichia coli phage EH297 [gbphg]: 2               <===== This is a phage of E. coli
+    Escherichia coli CFT073 [gbbct]: 5379
+    Escherichia coli O157:H45 [gbbct]: 4
+    Escherichia coli O55:H51 [gbbct]: 1                   <===== DO NOT USE ANY WITH A LOW NUMBER
+    Escherichia coli O26:H11 [gbbct]: 9
+    Escherichia coli O63:H6 [gbbct]: 1
+    Escherichia coli O153:H21 [gbbct]: 2
+    Escherichia coli EAEC 042 [gbbct]: 4
+    Escherichia coli W3110 [gbbct]: 4332
+    Escherichia coli Nissle 1917 [gbbct]: 199
+    Escherichia coli O63:HNM [gbbct]: 2
+    Escherichia coli 536 [gbbct]: 4629
+    Escherichia coli UTI89 [gbbct]: 5211
+    [...]
+    _______________________________________________________________________________
 
 
-Notice the number at the end of each line. For the human above, it was 93487. In some E. coli strains it is above 4-5000, but in
-many cases it is just a few. The number means the number of coding sequences analized. The lower the number is, the less reliable
-the data becomes. At a number of 1 or 2, some codons are not even captured, and there will be gaps such as "ACG T 0.00  0.0 (     0)"
-It would lead Codon Shuffler to skip that codon entirely. As distorted data will lead to distorted results, DO NOT USE
-data from species where there wer not at least a few thousands of coding sequences analyzed.
+Notice the number at the end of each line. For the human above, it was 93487. In some E. coli strains it is above 4-5000, but in many cases it is just a few. The number means the number of coding sequences analized. The lower the number is, the less reliable the data becomes. At a number of 1 or 2, some codons are not even captured, and there will be gaps such as 
 
-Once found the species of interest, a preliminary table is shown. This is not the correct table yet. For human, here is how the
-first couple of line would look. Note that the aminoacid names are missing.
+    ACG T 0.00  0.0 (     0)
+    
+It would lead Codon Shuffler to skip that codon entirely. As distorted data will lead to distorted results, DO NOT USE data from species where there wer not at least a few thousands of coding sequences analyzed. Once found the species of interest, a preliminary table is shown. This is not the correct table yet. For human, here is how the first couple of line would look. Note that the aminoacid names are missing.
 
-_______________________________________________________________________________
-Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)
-fields: [triplet] [frequency: per thousand] ([number])
-
-UUU 17.6(714298)  UCU 15.2(618711)  UAU 12.2(495699)  UGU 10.6(430311)
-UUC 20.3(824692)  UCC 17.7(718892)  UAC 15.3(622407)  UGC 12.6(513028)
-UUA  7.7(311881)  UCA 12.2(496448)  UAA  1.0( 40285)  UGA  1.6( 63237)
-UUG 12.9(525688)  UCG  4.4(179419)  UAG  0.8( 32109)  UGG 13.2(535595)
-_______________________________________________________________________________
+    _______________________________________________________________________________
+    Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)
+    fields: [triplet] [frequency: per thousand] ([number])
+    
+    UUU 17.6(714298)  UCU 15.2(618711)  UAU 12.2(495699)  UGU 10.6(430311)
+    UUC 20.3(824692)  UCC 17.7(718892)  UAC 15.3(622407)  UGC 12.6(513028)
+    UUA  7.7(311881)  UCA 12.2(496448)  UAA  1.0( 40285)  UGA  1.6( 63237)
+    UUG 12.9(525688)  UCG  4.4(179419)  UAG  0.8( 32109)  UGG 13.2(535595)
+    _______________________________________________________________________________
 
 
 To get the correct table go down below the preliminary table and find the dopdown menu below the word "Format:", written "SELECT A CODE"
@@ -417,55 +381,59 @@ To get the correct table go down below the preliminary table and find the dopdow
                         Format:
      THIS ====>        [SELECT A CODE ˇ]  Genetic codes (NCBI)
 
-From this menu, select the 1st option "1: STANDARD" and click the SUBMIT button below. In the browser search bar, the address will change
-like this (human example):
+
+From this menu, select the 1st option "1: STANDARD" and click the SUBMIT button below. In the browser search bar, the address will change like this (human example):
+
+    http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N
+    |--------------------------------------------------|------------|-----------|
+          base part, always the same                 your species ID    THIS must be exactly as is:   &aa=1&style=N
+
+You shall see the exact same link, except the species ID (1 to 6 digits) will change. Here is the correct table for E. coli, notice the ID is **199310** instead of **9606**, but the rest is the same:
 
 
-
-http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=9606&aa=1&style=N
-
-|--------------------------------------------------|------------|-----------|
-      base part, always the same                 your species ID    THIS must be exactly as is:   &aa=1&style=N
-
-You must see the exact same link, except the species ID (1 to 6 digits) will change. Here is the correct table for E. coli, notice the ID
-is 199310 instead of 9606, but the rest is the same:
-
-http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=199310&aa=1&style=N
+    http://www.kazusa.or.jp/codon/cgi-bin/showcodon.cgi?species=199310&aa=1&style=N
 
 
-When looking up the correct codon usage table at kazusa.or.jp, this is the output format. There is a header with species info. The actual
-data you need to copy over starts with "UUU F 0.# #.# (#####)"  (where # means numbers), and ends with GGG G 0.# #.# (#####). Example:
+When looking up the correct codon usage table at kazusa.or.jp, this is the output format. There is a header with species info. The actual data you need to copy over starts with 
 
-__________________________________________________________________________________________________________________________________
+    UUU F 0.# #.# (#####)
+
+(where # means numbers), and ends with 
+
+    GGG G 0.# #.# (#####)
+    
+Example:
+
+    _____________________________________________________________________________________________________________________________
                                                                                                                       \
-Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)                                                                    >  DO NOT COPY
-fields: [triplet] [amino acid] [fraction] [frequency: per thousand] ([number])                                        /
-
+    Homo sapiens [gbpri]: 93487 CDS's (40662582 codons)                                                                >  DO NOT COPY
+    fields: [triplet] [amino acid] [fraction] [frequency: per thousand] ([number])                                    /
+    
                                                                                                                      __
-UUU F 0.46 17.6 (714298)  UCU S 0.19 15.2 (618711)  UAU Y 0.44 12.2 (495699)  UGU C 0.46 10.6 (430311)                 \
-UUC F 0.54 20.3 (824692)  UCC S 0.22 17.7 (718892)  UAC Y 0.56 15.3 (622407)  UGC C 0.54 12.6 (513028)                  |
-UUA L 0.08  7.7 (311881)  UCA S 0.15 12.2 (496448)  UAA * 0.30  1.0 ( 40285)  UGA * 0.47  1.6 ( 63237)                  |
-UUG L 0.13 12.9 (525688)  UCG S 0.05  4.4 (179419)  UAG * 0.24  0.8 ( 32109)  UGG W 1.00 13.2 (535595)                  |
+    UUU F 0.46 17.6 (714298)  UCU S 0.19 15.2 (618711)  UAU Y 0.44 12.2 (495699)  UGU C 0.46 10.6 (430311)             \
+    UUC F 0.54 20.3 (824692)  UCC S 0.22 17.7 (718892)  UAC Y 0.56 15.3 (622407)  UGC C 0.54 12.6 (513028)              |
+    UUA L 0.08  7.7 (311881)  UCA S 0.15 12.2 (496448)  UAA * 0.30  1.0 ( 40285)  UGA * 0.47  1.6 ( 63237)              |
+    UUG L 0.13 12.9 (525688)  UCG S 0.05  4.4 (179419)  UAG * 0.24  0.8 ( 32109)  UGG W 1.00 13.2 (535595)              |
                                                                                                                         |
-CUU L 0.13 13.2 (536515)  CCU P 0.29 17.5 (713233)  CAU H 0.42 10.9 (441711)  CGU R 0.08  4.5 (184609)                  |
-CUC L 0.20 19.6 (796638)  CCC P 0.32 19.8 (804620)  CAC H 0.58 15.1 (613713)  CGC R 0.18 10.4 (423516)                  |
-CUA L 0.07  7.2 (290751)  CCA P 0.28 16.9 (688038)  CAA Q 0.27 12.3 (501911)  CGA R 0.11  6.2 (250760)                   \
-CUG L 0.40 39.6 (1611801)  CCG P 0.11  6.9 (281570)  CAG Q 0.73 34.2 (1391973)  CGG R 0.20 11.4 (464485)                  \  Copy only
+    CUU L 0.13 13.2 (536515)  CCU P 0.29 17.5 (713233)  CAU H 0.42 10.9 (441711)  CGU R 0.08  4.5 (184609)              |
+    CUC L 0.20 19.6 (796638)  CCC P 0.32 19.8 (804620)  CAC H 0.58 15.1 (613713)  CGC R 0.18 10.4 (423516)              |
+    CUA L 0.07  7.2 (290751)  CCA P 0.28 16.9 (688038)  CAA Q 0.27 12.3 (501911)  CGA R 0.11  6.2 (250760)               \
+    CUG L 0.40 39.6 (1611801)  CCG P 0.11  6.9 (281570)  CAG Q 0.73 34.2 (1391973)  CGG R 0.20 11.4 (464485)              \  Copy only
                                                                                                                           /  this part
-AUU I 0.36 16.0 (650473)  ACU T 0.25 13.1 (533609)  AAU N 0.47 17.0 (689701)  AGU S 0.15 12.1 (493429)                   /
-AUC I 0.47 20.8 (846466)  ACC T 0.36 18.9 (768147)  AAC N 0.53 19.1 (776603)  AGC S 0.24 19.5 (791383)                  |
-AUA I 0.17  7.5 (304565)  ACA T 0.28 15.1 (614523)  AAA K 0.43 24.4 (993621)  AGA R 0.21 12.2 (494682)                  |
-AUG M 1.00 22.0 (896005)  ACG T 0.11  6.1 (246105)  AAG K 0.57 31.9 (1295568)  AGG R 0.21 12.0 (486463)                 |
+    AUU I 0.36 16.0 (650473)  ACU T 0.25 13.1 (533609)  AAU N 0.47 17.0 (689701)  AGU S 0.15 12.1 (493429)               /
+    AUC I 0.47 20.8 (846466)  ACC T 0.36 18.9 (768147)  AAC N 0.53 19.1 (776603)  AGC S 0.24 19.5 (791383)              |
+    AUA I 0.17  7.5 (304565)  ACA T 0.28 15.1 (614523)  AAA K 0.43 24.4 (993621)  AGA R 0.21 12.2 (494682)              |
+    AUG M 1.00 22.0 (896005)  ACG T 0.11  6.1 (246105)  AAG K 0.57 31.9 (1295568)  AGG R 0.21 12.0 (486463)             |
                                                                                                                         |
-GUU V 0.18 11.0 (448607)  GCU A 0.27 18.4 (750096)  GAU D 0.46 21.8 (885429)  GGU G 0.16 10.8 (437126)                  |
-GUC V 0.24 14.5 (588138)  GCC A 0.40 27.7 (1127679)  GAC D 0.54 25.1 (1020595)  GGC G 0.34 22.2 (903565)                |
-GUA V 0.12  7.1 (287712)  GCA A 0.23 15.8 (643471)  GAA E 0.42 29.0 (1177632)  GGA G 0.25 16.5 (669873)                 |
-GUG V 0.46 28.1 (1143534)  GCG A 0.11  7.4 (299495)  GAG E 0.58 39.6 (1609975)  GGG G 0.25 16.5 (669768)              __/
-
+    GUU V 0.18 11.0 (448607)  GCU A 0.27 18.4 (750096)  GAU D 0.46 21.8 (885429)  GGU G 0.16 10.8 (437126)              |
+    GUC V 0.24 14.5 (588138)  GCC A 0.40 27.7 (1127679)  GAC D 0.54 25.1 (1020595)  GGC G 0.34 22.2 (903565)            |    
+    GUA V 0.12  7.1 (287712)  GCA A 0.23 15.8 (643471)  GAA E 0.42 29.0 (1177632)  GGA G 0.25 16.5 (669873)             |
+    GUG V 0.46 28.1 (1143534)  GCG A 0.11  7.4 (299495)  GAG E 0.58 39.6 (1609975)  GGG G 0.25 16.5 (669768)          __/
+    
                                                                                                                        \
-Coding GC 52.27% 1st letter GC 55.72% 2nd letter GC 42.54% 3rd letter GC 58.55%                                         >  DO NOT COPY
-Genetic code 1: Standard                                                                                               /
-__________________________________________________________________________________________________________________________________
+    Coding GC 52.27% 1st letter GC 55.72% 2nd letter GC 42.54% 3rd letter GC 58.55%                                     >  DO NOT COPY
+    Genetic code 1: Standard                                                                                           /
+    _____________________________________________________________________________________________________________________________
 
 
 The codon usage data then must be saved as txt file into the /codontables subfolder. In the file name it is  recommended to use
