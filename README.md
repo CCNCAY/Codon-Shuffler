@@ -20,32 +20,27 @@ ToC.:
 
 
 
+** 1. INTRO**
 
-                        1. INTRO
+The purpose of Codon Shuffler is to create DNA sequences that code for repetitive aminoacid sequences but are as little repetitive on the DNA level as possible. Why is it important. Gene synthesis is a modern way to create any coding DNA of artificial genes. However, repetitions in the DNA may impair the success rate of DNA synthesis. Many genes of interest nowadays consist of multiplication (dimer, trimer or higher degree of multimer) of a protein or domain. To cretae coding DNA for trimer via syntesis, one needs a DNA design that has as little similraties as possible.
 
-The purpose of Codon Shuffler is to create DNA sequences that code for repetitive aminoacid sequences but are as little repetitive on the DNA level as possible.
-Why is it important. Gene synthesis is a modern way to create any coding DNA of artificial genes. However, repetitions in the DNA may impair the
-success rate of DNA synthesis. Many genes of interest nowadays consist of multiplication (dimer, trimer or higher degree of multimer) of a protein or domain.
-To cretae coding DNA for trimer via syntesis, one needs a DNA design that has as little similraties as possible.
+How it is done. Codon Shuffler takes an aminoacid sequence and returns up to three reverse translated DNA sequences. The first DNA is random for each codon. Te second is random from the leftover codons, and certainly different if possible. The third one is random from the leftover and again, different from the previous one if possible. If only one repeat is requetsed, then the program also considers the codon frequency. 
 
-How it is done. Codon Shuffler takes an aminoacid sequence and returns up to three reverse translated DNA sequences. The first DNA is random for each codon. Te second is
-random from the leftover codons, and certainly different if possible. The third one is random from the leftover and again, different from the previous one if possible.
-If only one repeat is requetsed, then the program also considers the codon frequency.
+Some examples. Let's looke at the short example sequence
 
-Some examples. Let's looke at the short example sequence MGCG. Let's assume the user wanted 3 DNA outputs.
+    MGCG. 
+    
+Let's assume the user wanted 3 DNA outputs. The program takes the first amino acid, M (Methionine). It is coded by only ATG, so each of the three outputs is started as ATG:
 
-The program takes the first amino acid, M (Methionine). It is coded by only ATG, so each of the three outputs is started as ATG:
+    Output DNA 1: ATG
+    Output DNA 2: ATG
+    Output DNA 3: ATG
 
-Output DNA 1: ATG
-Output DNA 2: ATG
-Output DNA 3: ATG
+The prgram then takes G (Glycine). It is coded by GGA, GGT, GGG and GGC. The program takes a ramdom (say, GGG) for the first DNA. Then a random from the other three (say GGC). And finally picks a random from the leftover let's sad GGA. The output now looks like:
 
-The prgram then takes G (Glycine). It is coded by GGA, GGT, GGG and GGC. The program takes a ramdom (say, GGG) for the first DNA. Then a random from the other three (say GGC).
-And finally picks a random from the leftover let's sad GGA. The output now looks like:
-
-Output DNA 1: ATGGGG
-Output DNA 2: ATGGGC
-Output DNA 3: ATGGGA
+    Output DNA 1: ATGGGG
+    Output DNA 2: ATGGGC
+    Output DNA 3: ATGGGA
 
 
 The next aminoacid is Y (Tyrosine) coded by two codons TAT, TAC. Codon Shuffler picks one for the first DNA and the other for the second. Unfortunately the options are out so
